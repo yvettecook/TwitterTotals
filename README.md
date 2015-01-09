@@ -16,6 +16,10 @@ All dependent on the Twitter API functionality
 * RSpec
 * Capybara
 
+### To Use
+
+`$ bin/rake db:create`
+
 
 ### Aims
 
