@@ -18,14 +18,19 @@ class User < ActiveRecord::Base
     twitter_user.statuses_count
   end
 
-  def retweets_check
+  def retweets_count
     name = self.name
     @all_retweets = $twitter.retweeted_by_user(name, options={:count => 200})
-    if @all_retweets.count < 200
-      @all_retweets.count
+    return @all_retweets.count
+  end
+
+  def calculate_narcissism_score
+    if self.retweets_count < 200
+      score = self.low_RT_narcissism_score
     else
-      own_tweets_count
+      score = self.high_RT_narcissim_score
     end
+    return score
   end
 
   def oldest_rt_in_range_id
@@ -39,5 +44,23 @@ class User < ActiveRecord::Base
     without_rt.length
   end
 
+  def own_rt_tweets_count
+    name = self.name
+    last_retweet_id = self.oldest_rt_in_range_id
+    without_rt = $twitter.user_timeline(name, options={:include_rts => false, :since => last_retweet_id, :count => 200})
+    without_rt.length
+  end
+
+  def high_RT_narcissim_score
+    tweets = self.own_tweets_count
+    score = tweets / 200.0
+    return score
+  end
+
+  # def low_RT_narcissism_score
+  #   retweets =
+  #   tweets = self.own_tweet_count
+  #   retweets
+  # end
 
 end
