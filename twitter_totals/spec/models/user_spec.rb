@@ -13,7 +13,7 @@ describe 'Users' do
     expect(yvette.followers_count).to eq(203)
   end
 
-  it 'can get number of followering for an account' do
+  it 'can get number of following for an account' do
     expect(yvette.following_count).to eq(534)
   end
 
@@ -25,7 +25,13 @@ describe 'Users' do
     expect(camilla.retweets_check).to eq(2)
   end
 
+  it 'can get id of oldest RT in range' do
+    yvette.retweets_check
+    expect(yvette.oldest_rt_in_range_id).to eq(364392548598427649)
+  end
+
   it 'can return total tweets since first retweet in range' do
+    yvette.retweets_check
     expect(yvette.own_tweets_count).to eq(87)
   end
 
