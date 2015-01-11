@@ -18,7 +18,7 @@ describe 'On the stats page' do
     end
 
     it 'displays narcissim score' do
-      expect(page).to have_content('Narcissism score: 0.435')
+      expect(page).to have_content('Narcissism score: 0.43')
     end
 
   end

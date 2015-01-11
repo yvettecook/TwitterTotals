@@ -42,11 +42,11 @@ describe 'Users' do
   end
 
   it 'can return a narcissism score out of 10 for someone with 200+ RTs' do
-    expect(yvette.calculate_narcissism_score).to eq(0.435)
+    expect(yvette.calculate_narcissism_score).to eq(0.44)
   end
 
-  # it 'can return a narcissism score out of 10 for someone less than 200 RTs' do
-  #   expect(amal.calculate_narcissism_score).to eq(0.4)
-  # end
+  it 'can return a narcissism score out of 10 for someone less than 200 RTs' do
+    expect(amal.calculate_narcissism_score).to eq(4.35)
+  end
 
 end

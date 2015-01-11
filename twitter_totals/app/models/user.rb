@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     else
       score = self.high_RT_narcissim_score
     end
-    return score
+    return score.round(2)
   end
 
   def oldest_rt_in_range_id
@@ -57,10 +57,12 @@ class User < ActiveRecord::Base
     return score
   end
 
-  # def low_RT_narcissism_score
-  #   retweets =
-  #   tweets = self.own_tweet_count
-  #   retweets
-  # end
+  def low_RT_narcissism_score
+    all_tweets = $twitter.user_timeline(name, options={:include_rts => false, :count => 200})
+    last_tweet_id = all_tweets.last.id
+    retweets_since_last_tweet = $twitter.retweeted_by_user(name, options={:since => last_tweet_id, :count => 200})
+    retweets_since_count = retweets_since_last_tweet.length
+    return 200.0 / retweets_since_count
+  end
 
 end
