@@ -9,8 +9,8 @@ describe 'Users' do
     expect(yvette.name).to eq('ynzc')
   end
 
-  # it 'can get information on an account' do
-  #   expect(yvette.get_account).to eq({})
-  # end
+  it 'can get information on an account' do
+    expect(yvette.followers_count).to eq(203)
+  end
 
 end

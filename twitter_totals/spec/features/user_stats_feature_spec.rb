@@ -13,6 +13,10 @@ describe 'On the stats page' do
       expect(page).to have_content('Stats for ynzc')
     end
 
+    it 'displays total number of followers' do
+      expect(page).to have_content('Total followers: 203')
+    end
+
   end
 
 end
