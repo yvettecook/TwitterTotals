@@ -4,8 +4,5 @@ class User < ActiveRecord::Base
     true
   end
 
-  # def get_account(username)
-  #
-  # end
 
 end
