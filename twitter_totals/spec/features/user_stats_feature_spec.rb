@@ -7,7 +7,7 @@ describe 'On the stats page' do
     visit '/users/107'
   end
 
-  context 'for the basic user flow' do
+  context 'for the basic stats' do
 
     it 'there is a welcome' do
       expect(page).to have_content('Stats for ynzc')
@@ -15,6 +15,10 @@ describe 'On the stats page' do
 
     it 'displays total number of followers' do
       expect(page).to have_content('Total followers: 203')
+    end
+
+    it 'displays narcissim score' do
+      expect(page).to have_content('Narcissism score: 0.435')
     end
 
   end
