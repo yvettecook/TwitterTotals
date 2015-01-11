@@ -6,18 +6,20 @@ describe 'On the homepage' do
     visit '/'
   end
 
-  it 'there is a prompt to enter a twitter user name' do
-    expect(page).to have_content('Enter twitter username:')
+  it 'there is a welcome' do
+    expect(page).to have_content('Welcome! Want to find your twitter narcissism score?')
   end
 
-  it 'there is a box to enter a username' do
-    expect(page).to have_css('#username_input')
+  it 'there is a prompt to enter a twitter user name' do
+    expect(page).to have_content('Click here to find out')
   end
 
   it 'when a name is submitted, the user stats will be introduced' do
-    fill_in 'username_input', with: 'ynzc'
-    click_button 'Submit'
+    click_link 'Click here to find out'
+    fill_in 'Name', with: 'ynzc'
+    click_button 'Create User'
     expect(page).to have_content('Stats for ynzc')
   end
+
 
 end

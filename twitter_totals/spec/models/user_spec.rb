@@ -13,7 +13,7 @@ describe 'Users' do
     expect(yvette.confirm_account).to eq(true)
   end
 
-  it 'can get information on an account' do
+  xit 'can get information on an account' do
     expect(yvette.get_account).to eq({})
   end
 
