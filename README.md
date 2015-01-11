@@ -1,13 +1,13 @@
 ## Twitter Totals
 
+*Note: In progress*
+
 Simple Ruby on Rails app built to integrate with the Twitter API.
 
-A user can enter a twitter handle, and information about their tweet frequency is displayed (exact tbc). This might include:
+A user can enter a twitter handle, and their 'narcissism score'* is calculated
 
-* Tweets by date
-* Tweet vs. Retweet ratio*
+Narcissim score is calcuated by comparing the ratio of the user's tweets to the number of retweets. Hardly scientific, and surprisingly tricky to tease out of the Twitter API.
 
-All dependent on the Twitter API functionality
 
 ### Tools
 
@@ -15,14 +15,10 @@ All dependent on the Twitter API functionality
 * Ruby on Rails
 * RSpec
 * Capybara
+* [Twitter gem](https://github.com/sferik/twitter)
 
-Note on [Twitter-Rails gem](https://github.com/sferik/twitter): In the first instance I'm going to start by not using this, in order to ensure I understand the structure of the Twitter API.
-
-### To Use
-
-`$ bin/rake db:create`
 
 
 ### Aims
 
-* Skinny models
+* Skinny controllers
