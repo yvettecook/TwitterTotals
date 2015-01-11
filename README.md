@@ -16,6 +16,8 @@ All dependent on the Twitter API functionality
 * RSpec
 * Capybara
 
+Note on [Twitter-Rails gem](https://github.com/sferik/twitter): In the first instance I'm going to start by not using this, in order to ensure I understand the structure of the Twitter API.
+
 ### To Use
 
 `$ bin/rake db:create`

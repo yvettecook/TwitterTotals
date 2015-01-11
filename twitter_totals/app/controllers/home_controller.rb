@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
-  def index 
-
+  def index
+    @user = $twitter.user('ynzc')
   end
 
 end
