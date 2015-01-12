@@ -21,9 +21,12 @@ describe 'Users' do
     end
 
     it 'can get number of non-RT since last cent tweet' do
-      expect(yvette.non_rts_in_range).to eq(48)
+      expect(yvette.non_rts_in_range_count).to eq(48)
     end
 
+    it 'can get number of RT since last cent tweet' do
+      expect(yvette.rts_in_range_count).to eq(52)
+    end
 
   end
 

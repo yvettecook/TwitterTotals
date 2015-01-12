@@ -14,9 +14,17 @@ class User < ActiveRecord::Base
     last_cent_tweets.last.id
   end
 
-  def non_rts_in_range
-    all_tweets = $twitter.user_timeline(name, options={:include_rts => false, :since => self.last_cent_tweet_id, :count => 100})
-    all_tweets.length
+  def non_rts
+    non_rts ||= $twitter.user_timeline(name, options={:include_rts => false, :since => self.last_cent_tweet_id, :count => 100})
+  end
+
+  def non_rts_in_range_count
+    non_rts.length
+  end
+
+  def rts_in_range_count
+    all_tweets = last_cent_tweets.count
+    all_tweets - non_rts_in_range_count
   end
 
 end
