@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def calculate_narcissism_score
-    if self.retweets_count < 200
+    if self.retweets_count < 100
       score = self.low_RT_narcissism_score
     else
       score = self.high_RT_narcissim_score
@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 
   def high_RT_narcissim_score
     tweets = self.own_tweets_count
-    score = tweets / 200.0
+    score = tweets / 100.0
     return score
   end
 
@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
     last_tweet_id = all_tweets.last.id
     retweets_since_last_tweet = $twitter.retweeted_by_user(name, options={:since => last_tweet_id, :count => 200})
     retweets_since_count = retweets_since_last_tweet.length
-    return 200.0 / retweets_since_count
+    return self.tweets_count / retweets_since_count
   end
 
 end

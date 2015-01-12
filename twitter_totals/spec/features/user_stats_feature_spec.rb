@@ -14,11 +14,11 @@ describe 'On the stats page' do
     end
 
     it 'displays total number of followers' do
-      expect(page).to have_content('Total followers: 203')
+      expect(page).to have_content('Total followers: 205')
     end
 
     it 'displays narcissim score' do
-      expect(page).to have_content('Narcissism score: 0.43')
+      expect(page).to have_content('Narcissism score: 0.87')
     end
 
   end
