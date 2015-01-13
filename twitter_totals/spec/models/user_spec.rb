@@ -28,6 +28,11 @@ describe 'Users' do
       expect(yvette.rts_in_range_count).to eq(52)
     end
 
+    it 'can calculate percent of retweets' do
+      expect(yvette.calculate_retweet_percentage).to eq(52.0)
+    end
+  
+
   end
 
 end

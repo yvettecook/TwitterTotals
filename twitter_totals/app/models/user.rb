@@ -27,4 +27,11 @@ class User < ActiveRecord::Base
     all_tweets - non_rts_in_range_count
   end
 
+  def calculate_retweet_percentage
+    tweets = non_rts_in_range_count
+    retweets = rts_in_range_count
+    total = (tweets + retweets) / 1.00
+    percentage = (retweets / total) * 100.0
+  end
+
 end

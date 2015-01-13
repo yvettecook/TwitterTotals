@@ -22,3 +22,4 @@ Narcissim score is calcuated by comparing the ratio of the user's tweets to the 
 ### Aims
 
 * Skinny controllers
+* Use subject in RSpec
