@@ -31,7 +31,11 @@ describe 'Users' do
     it 'can calculate percent of retweets' do
       expect(yvette.calculate_retweet_percentage).to eq(52.0)
     end
-  
+
+    it 'can calculate a narcissism score' do
+      expect(yvette.calculate_narcissism_score).to eq(9.6)
+    end
+
 
   end
 

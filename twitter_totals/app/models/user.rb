@@ -34,4 +34,10 @@ class User < ActiveRecord::Base
     percentage = (retweets / total) * 100.0
   end
 
+  def calculate_narcissism_score
+    diff_from_perfect = (50 - calculate_retweet_percentage).abs
+    points_diff = diff_from_perfect * 0.2
+    narcissism_score = 10 - points_diff
+  end
+
 end
