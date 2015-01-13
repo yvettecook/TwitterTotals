@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
     $twitter.user(self.name)
   end
 
+  def narcissism_score
+    narcissim_score ||= calculate_narcissism_score
+  end
+
   def last_cent_tweets
     last_cent_tweets ||= $twitter.user_timeline(name, options={:include_rts => true, :count => 100})
   end

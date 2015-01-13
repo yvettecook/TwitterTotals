@@ -36,6 +36,11 @@ describe 'Users' do
       expect(yvette.calculate_narcissism_score).to eq(9.6)
     end
 
+    it 'has method to report narcissism_score' do
+      expect(yvette.narcissism_score).to eq(9.6)
+    end
+
+
 
   end
 

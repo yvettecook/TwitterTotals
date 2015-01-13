@@ -14,8 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @followers_count = @user.followers_count
-    @narcissism_score = @user.calculate_narcissism_score
+    @narcissism_score = @user.narcissism_score
   end
 
   def user_params
