@@ -23,3 +23,11 @@ Narcissim score is calcuated by comparing the ratio of the user's tweets to the 
 
 * Skinny controllers
 * Use subject in RSpec
+
+### Feedback
+
+Read about Singleton
+Pull twitter credentials into library (or concern?)
+
+Add instance variables in order to ensure state of variables is persisting
+

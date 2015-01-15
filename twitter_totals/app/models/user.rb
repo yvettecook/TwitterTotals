@@ -1,17 +1,25 @@
 require 'twitter'
+require_relative './concerns/twitter'
 
 class User < ActiveRecord::Base
 
+  include Twitter
+
+  # def initialize()
+  #   # @twitter = twitter
+  #   # @twitter = Twitter.instance
+  # end
+
   def twitter_user
-    $twitter.user(self.name)
+    @twitter.user(self.name)
   end
 
   def narcissism_score
-    narcissim_score ||= calculate_narcissism_score
+    @narcissim_score ||= calculate_narcissism_score
   end
 
   def last_cent_tweets
-    last_cent_tweets ||= $twitter.user_timeline(name, options={:include_rts => true, :count => 100})
+    last_cent_tweets ||= @twitter.user_timeline(name, options={:include_rts => true, :count => 100})
   end
 
   def last_cent_tweet_id
@@ -19,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def non_rts
-    non_rts ||= $twitter.user_timeline(name, options={:include_rts => false, :since => self.last_cent_tweet_id, :count => 100})
+    non_rts ||= @twitter.user_timeline(name, options={:include_rts => false, :since => self.last_cent_tweet_id, :count => 100})
   end
 
   def non_rts_in_range_count
