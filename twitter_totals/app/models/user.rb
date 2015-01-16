@@ -18,11 +18,11 @@ class User < ActiveRecord::Base
   end
 
   def narcissism_score
-    narcissim_score = calculate_narcissism_score
+    calculate_narcissism_score
   end
 
   def last_cent_tweets
-    last_cent_tweets = twitter_client.user_timeline(name, options={:include_rts => true, :count => 100})
+    twitter_client.user_timeline(name, options={:include_rts => true, :count => 100})
   end
 
   def last_cent_tweet_id
@@ -30,16 +30,16 @@ class User < ActiveRecord::Base
   end
 
   def non_rts
-    non_rts = twitter_client.user_timeline(name, options={:include_rts => false, :since => self.last_cent_tweet_id, :count => 100})
+    twitter_client.user_timeline(name, options={:include_rts => false, :since => self.last_cent_tweet_id, :count => 100})
   end
 
   def non_rts_in_range_count
-    non_rts.length
+    self.tweets = non_rts.length
   end
 
   def rts_in_range_count
     all_tweets = last_cent_tweets.count
-    all_tweets - non_rts_in_range_count
+    self.retweets = all_tweets - non_rts_in_range_count
   end
 
   def calculate_retweet_percentage
@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   def calculate_narcissism_score
     diff_from_perfect = (50 - calculate_retweet_percentage).abs
     points_diff = diff_from_perfect * 0.2
-    narcissism_score = 10 - points_diff
+    self.narcissism_score = 10 - points_diff
   end
 
 end
