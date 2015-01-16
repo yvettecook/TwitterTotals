@@ -18,11 +18,11 @@ class User < ActiveRecord::Base
   end
 
   def narcissism_score
-    @narcissim_score ||= calculate_narcissism_score
+    narcissim_score = calculate_narcissism_score
   end
 
   def last_cent_tweets
-    last_cent_tweets ||= twitter_client.user_timeline(name, options={:include_rts => true, :count => 100})
+    last_cent_tweets = twitter_client.user_timeline(name, options={:include_rts => true, :count => 100})
   end
 
   def last_cent_tweet_id
@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def non_rts
-    non_rts ||= twitter_client.user_timeline(name, options={:include_rts => false, :since => self.last_cent_tweet_id, :count => 100})
+    non_rts = twitter_client.user_timeline(name, options={:include_rts => false, :since => self.last_cent_tweet_id, :count => 100})
   end
 
   def non_rts_in_range_count

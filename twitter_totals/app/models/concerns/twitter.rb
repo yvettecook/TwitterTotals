@@ -18,8 +18,6 @@ module TwitterClient
       config.access_token         = Rails.application.secrets.twitter_access_token
       config.access_token_secret  = Rails.application.secrets.twitter_access_token_secret
     end
-    puts "YO! Twitter API is configured"
-    return @twitter
   end
 
 end
