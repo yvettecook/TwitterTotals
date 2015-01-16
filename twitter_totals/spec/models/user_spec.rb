@@ -2,11 +2,13 @@ require 'rails_helper'
 
 describe User do
 
-  subject{ described_class.new(name: username) }
+  # subject { described_class.find(name: username) }
 
   context 'for user with lots of RTs' do
 
-    let(:username) { 'ynzc' }
+    # let(:username) { 'ynzc' }
+    before(:context) { described_class.create(name: 'ynzc') }
+    subject { User.first }
 
     it 'has access to the Twitter concern' do
       expect(subject.say_hi).to eq("HI!")
@@ -30,11 +32,11 @@ describe User do
     end
 
     it 'can get number of non-RT since last 100th tweet' do
-      expect(subject.non_rts_in_range_count).to eq(48)
+      expect(subject.tweets).to eq(48)
     end
 
     it 'can get number of RT since last 100th tweet' do
-      expect(subject.rts_in_range_count).to eq(52)
+      expect(subject.retweets).to eq(52)
     end
 
     it 'can calculate percent of retweets' do
@@ -47,10 +49,9 @@ describe User do
 
   end
 
-  context 'for user with lots of RTs' do
+  xcontext 'for user with less of RTs' do
 
     let(:username) { 'k4kya' }
-
 
     it 'can get a users full name' do
       expect(subject.fullname).to eq('Amal Kakaiya')
