@@ -25,6 +25,10 @@ Narcissim score is calcuated by comparing the ratio of the user's tweets to the 
 * Use concerns and/or libraries
 * Use subject in RSpec
 
+### Notes
+
+* Attemping to stub/mock model's API calls, but need to google the syntax for after_create
+
 ### Feedback
 
 Read about Singleton

@@ -14,6 +14,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # @tweets = user.tweets
+    # @retweets = user.retweets
     @narcissism_score = @user.narcissism_score
   end
 

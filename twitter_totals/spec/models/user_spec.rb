@@ -2,13 +2,11 @@ require 'rails_helper'
 
 describe User do
 
-  # subject { described_class.find(name: username) }
+  subject { User.last }
 
-  context 'for user with lots of RTs' do
+  context 'tests accessing the API, with real data' do
 
-    # let(:username) { 'ynzc' }
     before(:context) { described_class.create(name: 'ynzc') }
-    subject { User.first }
 
     it 'has access to the Twitter concern' do
       expect(subject.say_hi).to eq("HI!")
@@ -49,28 +47,11 @@ describe User do
 
   end
 
-  xcontext 'for user with less of RTs' do
+  context 'tests mocked out' do
 
-    let(:username) { 'k4kya' }
-
-    it 'can get a users full name' do
-      expect(subject.fullname).to eq('Amal Kakaiya')
-    end
-
-    it 'can get last 100 tweets of a user' do
-      expect(subject.last_cent_tweets.length).to eq(100)
-    end
-
-    it 'can get id of last tweet in range' do
-      expect(subject.last_cent_tweet_id).to eq(325812114453307393)
-    end
-
-    it 'can get number of non-RT since last 100th tweet' do
-      expect(subject.non_rts_in_range_count).to eq(79)
-    end
-
-    it 'can get number of RT since last 100th tweet' do
-      expect(subject.rts_in_range_count).to eq(21)
+    before(:context) { described_class.create(name: 'k4kya', tweets: 79, retweets: 21) }
+    before do
+      # expect(subject).to receive(:last_cent_tweet_id).and_return(488712443284439040)
     end
 
     it 'can calculate percent of retweets' do

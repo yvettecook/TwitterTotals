@@ -13,6 +13,14 @@ describe 'On the stats page' do
       expect(page).to have_content('Stats for ynzc')
     end
 
+    it 'displays number of tweets' do
+      expect(page).to have_content('Number of tweets: 48')
+    end
+
+    it 'displays number of retweets' do
+      expect(page).to have_content('Number of retweets: 52')
+    end
+
     it 'displays narcissim score' do
       expect(page).to have_content('Narcissism score: 9.6')
     end

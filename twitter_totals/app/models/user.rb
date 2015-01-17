@@ -1,12 +1,11 @@
 require 'twitter'
-require_relative './concerns/twitter'
+require_relative './concerns/twitter_client'
 
 class User < ActiveRecord::Base
 
   include TwitterClient
 
   after_create :on_creation, :api_check
-
 
   def twitter_client
     @twitter_client ||= self.twitter
@@ -46,8 +45,8 @@ class User < ActiveRecord::Base
   end
 
   def calculate_retweet_percentage
-    tweets = non_rts_in_range_count
-    retweets = rts_in_range_count
+    tweets = self.tweets
+    retweets = self.retweets
     total = (tweets + retweets) / 1.00
     percentage = (retweets / total) * 100.0
   end
