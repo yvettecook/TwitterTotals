@@ -26,7 +26,7 @@ describe User do
     end
 
     it 'can get id of last tweet in range' do
-      expect(subjectit).to receive(:last_cent_tweet_id).and_return(488712443284439040)
+      expect(subject).to receive(:last_cent_tweet_id).and_return(488712443284439040)
       expect(subject.last_cent_tweet_id).to eq(488712443284439040)
     end
 
@@ -47,23 +47,5 @@ describe User do
     end
 
   end
-
-  context 'tests mocked out' do
-
-    before(:context) { described_class.create(name: 'k4kya', tweets: 79, retweets: 21) }
-    before do
-      # expect(subject).to receive(:last_cent_tweet_id).and_return(488712443284439040)
-    end
-
-    it 'can calculate percent of retweets' do
-      expect(subject.calculate_retweet_percentage).to eq(21.0)
-    end
-
-    it 'has method to report narcissism_score' do
-      expect(subject.narcissism_score).to eq(4.199999999999999)
-    end
-
-  end
-
 
 end
