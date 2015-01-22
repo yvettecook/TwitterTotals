@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'On the homepage' do
-
+  
   before do
     visit '/'
   end
