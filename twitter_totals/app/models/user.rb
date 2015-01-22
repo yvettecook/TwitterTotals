@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   include TwitterClient
 
-  after_create :on_creation, :api_check
+  after_create :on_creation
 
   def twitter_client
     @twitter_client ||= self.twitter

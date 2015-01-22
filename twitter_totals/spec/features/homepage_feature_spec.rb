@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'On the homepage' do
-  
+
   before do
     visit '/'
   end
@@ -13,11 +13,10 @@ describe 'On the homepage' do
     end
 
     it 'there is a prompt to enter a twitter user name' do
-      expect(page).to have_content('Click here to find out')
+      expect(page).to have_content('Enter twitter username')
     end
 
     it 'when a name is submitted, the user stats will be introduced' do
-      click_link 'Click here to find out'
       fill_in 'Name', with: 'ynzc'
       click_button 'Create User'
       expect(page).to have_content('Stats for ynzc')
