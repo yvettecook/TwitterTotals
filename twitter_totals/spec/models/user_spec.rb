@@ -26,6 +26,7 @@ describe User do
     end
 
     it 'can get id of last tweet in range' do
+      expect(subjectit).to receive(:last_cent_tweet_id).and_return(488712443284439040)
       expect(subject.last_cent_tweet_id).to eq(488712443284439040)
     end
 
